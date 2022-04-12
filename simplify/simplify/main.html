@@ -1,0 +1,27 @@
+{{^isPublished}}
+<script type="text/javascript" src="https://www.simplify.com/commerce/simplify.pay.js"></script>
+{{{content.paymentGatewayButton}}}
+{{/isPublished}}
+{{#isPublished}}
+<form action="" method="post" data-gateway-id="Simplify" id="{{id}}_form" style="width: 100%; height: 100%;">
+	{{#content.store}}
+	<input type="hidden" name="transactionId" value="{transactionId}" />
+	<input type="hidden" name="successUrl" value="{returnUrl}" />
+	<input type="hidden" name="cancelUrl" value="{cancelUrl}" />
+	{{/content.store}}
+	<input type="hidden" name="description" value="{{content.description}}" />
+	<input type="hidden" name="description2" value="{{content.description2}}" />
+	<input type="hidden" name="amount" value="{{content.amount}}" />
+	<input type="hidden" name="currency" value="{{content.currency}}" />
+	{{{requireService}}}
+	<button data-sc-key="sbpb_NTgzM2ExYjctOGY4ZC00YjhkLThiN2MtMTliODBmNmViNTNm"
+        data-name="{{content.description}}"
+        data-description="{{content.description2}}"
+        data-reference="99999"
+        data-amount="{{content.amount}}"
+        data-color="#12B830">
+        Buy
+	</button>
+</form>
+
+{{/isPublished}}
